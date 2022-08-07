@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block head_title %}Fitia - Inicio{% endblock %}
+
+{% block html_class %}h-full{% endblock %}
+{% block body_class %}h-full{% endblock %}
+
+{% block content %}
+<div class="min-h-full flex flex-col justify-center background">
+  <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-white overflow-hidden shadow rounded-lg">
+      <div class="px-4 py-5 sm:px-6">
+        <div class="flex items-center justify-center space-x-4">
+          <img class="w-auto h-16" src="{% static 'svg/fitia_redondo.svg' %}" alt="" />
+          <img class="w-auto h-8" src="{% static 'svg/fitia_texto.svg' %}" alt="" />
+        </div>
+      </div>
+
+      <div class="px-4 py-5 sm:p-6">
+        <p>Tu almuerzo es de:</p>
+      </div>
+
+      <div class="px-4 py-4 sm:px-6">
+        <div class="flex justify-center">
+          <a href="/"
+            class="text-white font-medium text-lg bg-amber-400 rounded-full px-8 py-3 hover:bg-amber-500 transition duration-200 ease-in-out">
+            Calcular otra comida
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}

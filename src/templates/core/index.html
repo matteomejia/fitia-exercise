@@ -1,30 +1,80 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block head_title %}Fitia - Inicio{% endblock %}
 
+{% block html_class %}h-full{% endblock %}
+{% block body_class %}h-full{% endblock %}
+
 {% block content %}
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-  <div class="bg-white overflow-hidden shadow rounded-lg divide-y divide-gray-200">
-    <div class="px-4 py-5 sm:px-6">
-      <div class="text-center">
-        <h1 class="text-4xl font-bold">Fitia</h1>
+<div class="min-h-full flex flex-col justify-center background">
+  <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <form action="/" method="post" class="bg-white overflow-hidden shadow rounded-lg" x-data="{step: false, food: ''}">
+      {% csrf_token %}
+      <input type="hidden" name="food" x-bind:value="food">
+
+      <div class="px-4 py-5 sm:px-6">
+        <div class="flex items-center justify-center space-x-4">
+          <img class="w-auto h-16" src="{% static 'svg/fitia_redondo.svg' %}" alt="" />
+          <img class="w-auto h-8" src="{% static 'svg/fitia_texto.svg' %}" alt="" />
+        </div>
       </div>
-    </div>
-    <div class="px-4 py-5 sm:p-6">
-      <form class="flex flex-col items-center justify-center space-y-24">
-        <p class="block">¿Qué comida deseas construir?</p>
-        <button type="button"
-          class="block bg-white border-2 border-neutral-300 rounded-full px-8 py-2 hover:bg-neutral-100 transition-colors">
-          Elegir Comida
-        </button>
-        <button type="button"
-          class="block bg-amber-400 text-white rounded-full px-8 py-2 hover:bg-amber-500 transition-colors">
-          Construir Comida
-        </button>
-      </form>
-    </div>
+
+      <div class="px-4 py-5 sm:p-6">
+        <div class="flex flex-col">
+
+          <div class="flex flex-col items-center space-y-8" x-show="!step" x-cloak>
+            <p class="text-lg">¿Qué comida deseas construir?</p>
+            <div>
+              <button type="button"
+                class="bg-white border-2 border-neutral-300 text-lg rounded-full px-8 py-3 hover:bg-neutral-100 transition duration-200 ease-in-out"
+                @click="step = !step">
+                Elegir Comida
+              </button>
+            </div>
+          </div>
+
+          <div class="flex flex-col items-center space-y-8" x-show="step" x-cloak>
+            <p class="text-lg">¿Qué comida deseas construir?</p>
+            <div class="w-full max-w-sm mx-auto">
+              <div class="bg-white shadow rounded-xl border overflow-hidden divide-y divide-amber-400">
+                <button type="button" class="block w-full text-center font-medium py-3 px-2 transition-all"
+                  @click="food = 'breakfast'"
+                  x-bind:class="food === 'breakfast' ? 'bg-amber-300 hover:bg-amber-400' : 'hover:bg-neutral-100'">
+                  Desayuno ⛅
+                </button>
+                <button type="button" class="block w-full text-center font-medium py-3 px-2 transition-all"
+                  @click="food = 'lunch'"
+                  x-bind:class="food === 'lunch' ? 'bg-amber-300 hover:bg-amber-400' : 'hover:bg-neutral-100'">
+                  Almuerzo ☀️
+                </button>
+                <button type="button" class="block w-full text-center font-medium py-3 px-2 transition-all"
+                  @click="food = 'dinner'"
+                  x-bind:class="food === 'dinner' ? 'bg-amber-300 hover:bg-amber-400' : 'hover:bg-neutral-100'">
+                  Cena 🌙
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="px-4 py-4 sm:px-6">
+        <div class="flex items-center justify-center">
+          <button type="submit"
+            class="text-white font-medium text-lg bg-amber-400 rounded-full px-8 py-3 hover:bg-amber-500 transition duration-200 ease-in-out">
+            Construir Comida
+          </button>
+        </div>
+      </div>
+
+    </form>
   </div>
 </div>
+
+
 
 
 {% endblock %}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="646" height="646" viewBox="0 0 646 646">
+  <defs>
+    <clipPath id="clip-Fitia_logo_redondo">
+      <rect width="646" height="646"/>
+    </clipPath>
+  </defs>
+  <g id="Fitia_logo_redondo" data-name="Fitia logo redondo" clip-path="url(#clip-Fitia_logo_redondo)">
+    <g id="Group_3187" data-name="Group 3187">
+      <rect id="Rectangle_1412" data-name="Rectangle 1412" width="646" height="646" rx="323" fill="#ffc300"/>
+      <g id="Group_1842" data-name="Group 1842" transform="translate(75.651 72.293)">
+        <g id="Group_6" data-name="Group 6" transform="translate(122.156 111.052)">
+          <rect id="Rectangle_15" data-name="Rectangle 15" width="276.999" height="75.332" rx="37.666" fill="#fff"/>
+          <rect id="Rectangle_17" data-name="Rectangle 17" width="189.082" height="75.332" rx="37.666" transform="translate(0 102.377)" fill="#fff"/>
+          <rect id="Rectangle_18" data-name="Rectangle 18" width="94.378" height="75.332" rx="37.666" transform="translate(0.292 204.753)" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
