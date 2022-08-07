@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Fitia - Inicio{% endblock %}
+
+{% block content %}
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="bg-white overflow-hidden shadow rounded-lg divide-y divide-gray-200">
+    <div class="px-4 py-5 sm:px-6">
+      <div class="text-center">
+        <h1 class="text-4xl font-bold">Fitia</h1>
+      </div>
+    </div>
+    <div class="px-4 py-5 sm:p-6">
+      <form class="flex flex-col items-center justify-center space-y-24">
+        <p class="block">¿Qué comida deseas construir?</p>
+        <button type="button"
+          class="block bg-white border-2 border-neutral-300 rounded-full px-8 py-2 hover:bg-neutral-100 transition-colors">
+          Elegir Comida
+        </button>
+        <button type="button"
+          class="block bg-amber-400 text-white rounded-full px-8 py-2 hover:bg-amber-500 transition-colors">
+          Construir Comida
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
