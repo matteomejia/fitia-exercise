@@ -38,13 +38,13 @@
                   <div class="flex flex-row items-center">
                     <p>{{ item.name }}</p>
                   </div>
-                  <div class="flex flex-col space-x-1">
+                  <div class="flex flex-col items-end space-x-1">
                     {% if item.quantity == 1 %}
                     <p>{{ item.quantity }} porción</p>
                     {% else %}
                     <p>{{ item.quantity }} porciones</p>
                     {% endif %}
-                    <p>{{ item.calories }} kcal</p>
+                    <p>{{ item.calories|floatformat:0 }} kcal</p>
                   </div>
                 </div>
               </div>
