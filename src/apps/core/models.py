@@ -1,10 +1,11 @@
+from typing import List
+
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from apps.core.choices import MacroTypeChoices
 
 # Create your models here.
-
 
 class Food(models.Model):
     external_id = models.IntegerField(_("external id"), unique=True, db_index=True)
