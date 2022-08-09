@@ -15,14 +15,13 @@
       <input type="hidden" name="food" x-bind:value="food">
 
       <div class="px-4 py-5 sm:px-6">
-        <div class="flex items-center justify-center space-x-4">
-          <img class="w-auto h-16" src="{% static 'svg/fitia_redondo.svg' %}" alt="" />
-          <img class="w-auto h-8" src="{% static 'svg/fitia_texto.svg' %}" alt="" />
+        <div class="flex items-center justify-center">
+          <img class="w-auto h-16" src="{% static 'img/logo.png' %}" alt="" />
         </div>
       </div>
 
       <div class="px-4 py-5 sm:p-6">
-        <div class="flex flex-col">
+        <div class="flex flex-col my-24">
 
           <div class="flex flex-col items-center space-y-8" x-show="!step" x-cloak>
             <p class="text-lg">¿Qué comida deseas construir?</p>
@@ -64,7 +63,8 @@
       <div class="px-4 py-4 sm:px-6">
         <div class="flex items-center justify-center">
           <button type="submit"
-            class="text-white font-medium text-lg bg-amber-400 rounded-full px-8 py-3 hover:bg-amber-500 transition duration-200 ease-in-out">
+            class="text-white font-medium text-lg bg-amber-400 rounded-full px-8 py-3 hover:bg-amber-500 transition duration-200 ease-in-out disabled:bg-opacity-50 disabled:cursor-not-allowed"
+            x-bind:disabled="food === ''">
             Construir Comida
           </button>
         </div>
