@@ -10,13 +10,9 @@ class FoodAdmin(admin.ModelAdmin):
     list_display = [
         "name",
         "calories",
-        "protein",
-        "carbohydrates",
-        "fat",
         "portion_unit",
-        "portion_weight",
-        "portion_min",
-        "portion_max",
     ]
     list_filter = ["macro_type", "breakfast", "lunch", "dinner"]
     ordering = ["external_id"]
+    readonly_fields = ["external_id"]
+    search_fields = ["name"]

@@ -7,6 +7,7 @@ from apps.core.choices import MacroTypeChoices
 
 # Create your models here.
 
+
 class Food(models.Model):
     external_id = models.IntegerField(_("external id"), unique=True, db_index=True)
 

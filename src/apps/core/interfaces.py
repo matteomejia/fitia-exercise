@@ -9,6 +9,14 @@ class MealPlan:
     macrosLunch: List[float] = [35.0, 75.0, 17.0]
     macrosDinner: List[float] = [35.0, 75.0, 17.0]
 
+    def __init__(self, calories: List[int], macros: List[List[float]]):
+        self.caloriesBreakfast = calories[0]
+        self.caloriesLunch = calories[1]
+        self.caloriesDinner = calories[2]
+        self.macrosBreakfast = macros[0]
+        self.macrosLunch = macros[1]
+        self.macrosDinner = macros[2]
+
 
 class Target:
     calories: float

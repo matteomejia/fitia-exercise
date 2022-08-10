@@ -82,14 +82,8 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-        "ATOMIC_REQUESTS": True,
-    }
-}
-
+DATABASES = {"default": env.db_url("DJANGO_DATABASE_URL")}
+DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -117,7 +111,7 @@ from django.utils.translation import gettext_lazy as _
 
 LANGUAGES = [("es", _("spanish")), ("en", _("english"))]
 
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = "es"
 
 TIME_ZONE = "UTC"
 
@@ -125,6 +119,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+LOCALE_PATHS = [PROJECT_DIR / "locale"]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/

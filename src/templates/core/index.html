@@ -21,7 +21,7 @@
       </div>
 
       <div class="px-4 py-5 sm:p-6">
-        <div class="flex flex-col my-24">
+        <div class="min-h-[50vh] flex flex-col justify-center">
 
           <div class="flex flex-col items-center space-y-8" x-show="!step" x-cloak>
             <p class="text-lg">¿Qué comida deseas construir?</p>
@@ -37,7 +37,7 @@
           <div class="flex flex-col items-center space-y-8" x-show="step" x-cloak>
             <p class="text-lg">¿Qué comida deseas construir?</p>
             <div class="w-full max-w-sm mx-auto">
-              <div class="bg-white shadow rounded-xl border overflow-hidden divide-y divide-amber-400">
+              <div class="bg-white shadow rounded-xl border overflow-hidden">
                 <button type="button" class="block w-full text-center font-medium py-3 px-2 transition-all"
                   @click="food = 'breakfast'"
                   x-bind:class="food === 'breakfast' ? 'bg-amber-300 hover:bg-amber-400' : 'hover:bg-neutral-100'">

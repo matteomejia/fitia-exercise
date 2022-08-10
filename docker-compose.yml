@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  django:
+    build:
+      dockerfile: ./dockerfiles/dev/django.dockerfile
+      context: .
+    image: fitia-dev-django
+    command: python src/manage.py runserver 0.0.0.0:8000
+    ports:
+      - 8000:8000
+    depends_on:
+      - postgres
+    volumes:
+      - ./:/code
+    env_file:
+      - ./.env
+  tailwind:
+    build:
+      dockerfile: ./dockerfiles/dev/tailwind.dockerfile
+      context: .
+    image: fitia-dev-tailwind
+    command: yarn dev
+    tty: true
+    volumes:
+      - ./:/code
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=fitia
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data: {}

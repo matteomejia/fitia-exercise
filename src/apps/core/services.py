@@ -20,24 +20,26 @@ def optimize_meal(combo: Tuple[Food], target: Target) -> Tuple[dict, bool]:
     carbohydrates = [food.carbohydrates for food in combo]
     fats = [food.fat for food in combo]
 
-    total_cal = sum(list(unit * cal for unit, cal in zip(units, calories)))
-    total_prot = sum(list(unit * prot for unit, prot in zip(units, proteins)))
-    total_carb = sum(list(unit * carb for unit, carb in zip(units, carbohydrates)))
-    total_fat = sum(list(unit * fat for unit, fat in zip(units, fats)))
+    total_calories = sum(list(unit * cal for unit, cal in zip(units, calories)))
+    total_proteins = sum(list(unit * prot for unit, prot in zip(units, proteins)))
+    total_carbohydrates = sum(
+        list(unit * carb for unit, carb in zip(units, carbohydrates))
+    )
+    total_fats = sum(list(unit * fat for unit, fat in zip(units, fats)))
 
-    solver.Add(total_cal >= target.calories * 0.8)
-    solver.Add(total_cal <= target.calories * 1.1)
+    solver.Add(total_calories >= target.calories * 0.8)
+    solver.Add(total_calories <= target.calories * 1.1)
 
-    solver.Add(total_prot >= target.protein * 0.8)
-    solver.Add(total_prot <= target.protein * 1.1)
+    solver.Add(total_proteins >= target.protein * 0.8)
+    solver.Add(total_proteins <= target.protein * 1.1)
 
-    solver.Add(total_carb >= target.carbohydrates * 0.8)
-    solver.Add(total_carb <= target.carbohydrates * 1.1)
+    solver.Add(total_carbohydrates >= target.carbohydrates * 0.8)
+    solver.Add(total_carbohydrates <= target.carbohydrates * 1.1)
 
-    solver.Add(total_fat >= target.fat * 0.8)
-    solver.Add(total_fat <= target.fat * 1.1)
+    solver.Add(total_fats >= target.fat * 0.8)
+    solver.Add(total_fats <= target.fat * 1.1)
 
-    solver.Minimize(total_cal)
+    solver.Minimize(total_calories)
 
     status = solver.Solve()
 

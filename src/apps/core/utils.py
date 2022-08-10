@@ -1,9 +1,17 @@
-from typing import Tuple, List, Any
+from typing import Tuple, List, Any, Dict
 
 from apps.core.models import Food
+from apps.core.interfaces import MealPlan
 
 
-def generate_meal_dict(combo: Tuple[Food], values: List[Any]):
+def get_default_meal_plam() -> MealPlan:
+    calories = [500, 600, 600]
+    macros = [[25.0, 65.0, 15.0], [35.0, 75.0, 17.0], [35.0, 75.0, 17.0]]
+
+    return MealPlan(calories, macros)
+
+
+def generate_meal_dict(combo: Tuple[Food], values: List[Any]) -> Dict:
     meal = {
         "total_calories": 0.0,
         "total_proteins": 0.0,

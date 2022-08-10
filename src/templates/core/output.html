@@ -12,51 +12,55 @@
   <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="bg-white overflow-hidden shadow rounded-lg">
       <div class="px-4 py-5 sm:px-6">
-        <div class="flex items-center justify-center space-x-4">
-          <img class="w-auto h-16" src="{% static 'svg/fitia_redondo.svg' %}" alt="" />
-          <img class="w-auto h-8" src="{% static 'svg/fitia_texto.svg' %}" alt="" />
+        <div class="flex items-center justify-center">
+          <img class="w-auto h-16" src="{% static 'img/logo.png' %}" alt="" />
         </div>
       </div>
 
       {% if found %}
       <div class="px-4 py-5 sm:p-6">
-        <div class="space-y-8">
-          <div class="flex flex-col items-center">
-            <p class="text-lg">Tu {{ type }} es de:</p>
-          </div>
-          <div class="flex flex-col items-center space-y-2">
-            <p>{{ meal.total_calories }} kcal</p>
-            <p>{{ meal.total_proteins }}g proteínas</p>
-            <p>{{ meal.total_carbohydrates }}g carbohidratos</p>
-            <p>{{ meal.total_fats }}g grasas</p>
-          </div>
-          <div class="flex flex-col items-center space-y-4">
-            {% for item in meal.items %}
-            <div class="w-full max-w-sm">
-              <div class="bg-white border rounded-lg shadow px-5 py-4">
-                <div class="flex flex-row justify-between">
-                  <div class="flex flex-row items-center">
-                    <p>{{ item.name }}</p>
-                  </div>
-                  <div class="flex flex-col items-end space-x-1">
-                    {% if item.quantity == 1 %}
-                    <p>{{ item.quantity|floatformat }} porción</p>
-                    {% else %}
-                    <p>{{ item.quantity|floatformat }} porciones</p>
-                    {% endif %}
-                    <p>{{ item.calories|floatformat:0 }} kcal</p>
+        <div class="min-h-[50vh] flex flex-col justify-center">
+          <div class="space-y-8">
+            <div class="flex flex-col items-center">
+              <p class="text-lg">Tu {{ type }} es de:</p>
+            </div>
+            <div class="flex flex-col items-center space-y-2">
+              <p>🔥 {{ meal.total_calories|floatformat:0 }} kcal</p>
+              <p>🍗 {{ meal.total_proteins|floatformat:0 }}g proteínas</p>
+              <p>🥔 {{ meal.total_carbohydrates|floatformat:0 }}g carbohidratos</p>
+              <p>🥑 {{ meal.total_fats|floatformat:0 }}g grasas</p>
+            </div>
+            <div class="flex flex-col items-center space-y-4">
+              {% for item in meal.items %}
+              <div class="w-full max-w-xs">
+                <div class="bg-white border rounded-xl shadow-md px-5 py-4">
+                  <div class="flex flex-row justify-between">
+                    <div class="flex flex-row items-center">
+                      <p>{{ item.name }}</p>
+                    </div>
+                    <div class="flex flex-col items-end space-x-1">
+                      {% if item.quantity == 1 %}
+                      <p>{{ item.quantity|floatformat:0 }} porción</p>
+                      {% else %}
+                      <p>{{ item.quantity|floatformat:0 }} porciones</p>
+                      {% endif %}
+                      <p>{{ item.calories|floatformat:0 }} kcal</p>
+                    </div>
                   </div>
                 </div>
               </div>
+              {% endfor %}
             </div>
-            {% endfor %}
           </div>
         </div>
+
       </div>
       {% else %}
       <div class="px-4 py-5 sm:p-6">
-        <div class="flex flex-col items-center">
-          <p>No se encontró una comida ideal.</p>
+        <div class="min-h-[50vh] flex flex-col justify-center">
+          <div class="w-full flex items-center justify-center">
+            <p>No se encontró una comida ideal.</p>
+          </div>
         </div>
       </div>
       {% endif %}
