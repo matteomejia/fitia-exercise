@@ -24,9 +24,6 @@ APPS_DIR = PROJECT_DIR / "apps"
 
 env = environ.Env()
 
-if os.environ.get("READ_ENV_FILE"):
-    env.read_env(str(BASE_DIR / ".env"))
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
