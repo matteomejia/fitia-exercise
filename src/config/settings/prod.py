@@ -10,7 +10,3 @@ ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS')
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 FOOD_API_URL = env.str("DJANGO_FOOD_API_URL")
-
-SESSION_COOKIE_SECURE = True
-
-CSRF_COOKIE_SECURE = True
