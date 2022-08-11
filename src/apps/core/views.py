@@ -20,6 +20,10 @@ class IndexView(View):
         return render(request, "core/index.html")
 
     def post(self, request: HttpRequest):
+        """Checks the requested meal, filters the Food queryset,
+        calls the find_meal function and sends the result to
+        the template."""
+
         meal_plan: MealPlan = get_default_meal_plam()
         form = FoodForm(request.POST)
 

@@ -9,6 +9,8 @@ from apps.core.utils import generate_meal_dict
 
 
 def optimize_meal(combo: Tuple[Food], target: Target) -> Tuple[dict, bool]:
+    """Takes a combination of Foods and a set of targets and finds and optimized meal combination."""
+
     solver = pywraplp.Solver("Find Meal", pywraplp.Solver.CBC_MIXED_INTEGER_PROGRAMMING)
 
     units = [
@@ -54,6 +56,7 @@ def optimize_meal(combo: Tuple[Food], target: Target) -> Tuple[dict, bool]:
 def find_meal(
     prot_list: List[Food], carb_list: List[Food], fat_list: List[Food], target: Target
 ) -> Tuple[dict, bool]:
+    """Takes the lists of foods and generates all possibles combinations and calls the optimizer function."""
 
     prot_permutations = list(permutations(prot_list, 1))
     carb_permutations = list(permutations(carb_list, 1)) + list(

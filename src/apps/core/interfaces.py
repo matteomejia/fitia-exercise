@@ -1,6 +1,9 @@
 from typing import List
 
 
+# Here I store classes that are not Django models
+
+
 class MealPlan:
     caloriesBreakfast: int = 500
     caloriesLunch: int = 600

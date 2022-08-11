@@ -5,6 +5,8 @@ from apps.core.interfaces import MealPlan
 
 
 def get_default_meal_plam() -> MealPlan:
+    """Returns the defaults values for calories and macros targets."""
+
     calories = [500, 600, 600]
     macros = [[25.0, 65.0, 15.0], [35.0, 75.0, 17.0], [35.0, 75.0, 17.0]]
 
@@ -12,6 +14,7 @@ def get_default_meal_plam() -> MealPlan:
 
 
 def generate_meal_dict(combo: Tuple[Food], values: List[Any]) -> Dict:
+    """Transforms the selected food combination to a dict that will be sent to the template."""
     meal = {
         "total_calories": 0.0,
         "total_proteins": 0.0,
