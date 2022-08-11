@@ -6,6 +6,8 @@ Repo for the exercise part of Fitia's application process
 
 The project can be used with Docker Compose for both development and production.
 
+First, copy the file `.env.example` as `.env` and fill the variables.
+
 For development
 ```bash
 docker compose build
